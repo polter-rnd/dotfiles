@@ -1,0 +1,15 @@
+user_pref("browser.tabs.warnOnClose", false);
+user_pref("browser.tabs.warnOnCloseOtherTabs", false);
+user_pref("dom.push.connection.enabled", false);
+user_pref("dom.push.enabled", false);
+user_pref("dom.webnotifications.enabled", false);
+user_pref("dom.webnotifications.serviceworker.enabled", false);
+user_pref("gfx.webrender.all", true);
+user_pref("gfx.webrender.compositor", true);
+user_pref("gfx.webrender.compositor.force-enabled", true);
+user_pref("gfx.webrender.enabled", true);
+user_pref("layers.acceleration.force-enabled", true);
+user_pref("layers.force-active", true);
+user_pref("ui.key.menuAccessKeyFocuses", false);
+user_pref("widget.wayland-dmabuf-vaapi.enabled", true);
+user_pref("widget.wayland-dmabuf-webgl.enabled", true);

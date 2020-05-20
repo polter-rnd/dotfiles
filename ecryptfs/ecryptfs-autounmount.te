@@ -1,0 +1,23 @@
+
+module ecryptfs-autounmount 1.0;
+
+require {
+        type init_t;
+        type mount_ecryptfs_t;
+        type ecryptfs_t;
+        type mount_ecryptfs_exec_t;
+        type user_home_dir_t;
+        class file { execute open read };
+        class lnk_file read;
+        class filesystem getattr;
+        class dir search;
+}
+
+#============= init_t ==============
+allow init_t ecryptfs_t:lnk_file read;
+allow init_t mount_ecryptfs_exec_t:file { execute open read };
+
+#============= mount_ecryptfs_t ==============
+allow mount_ecryptfs_t ecryptfs_t:filesystem getattr;
+allow mount_ecryptfs_t user_home_dir_t:dir search;
+
