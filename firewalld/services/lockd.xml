@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+  <short>lockd</short>
+  <description>The rpc.lockd utility provides monitored and unmonitored file and record locking services in an NFS environment.</description>
+  <port protocol="tcp" port="32803"/>
+  <port protocol="udp" port="32769"/>
+</service>
