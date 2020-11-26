@@ -19,7 +19,7 @@ $ sudo systemctl --global enable ecryptfs-autounmount # (for all users)
 If using SELinux this could be not enough however. In this case you have to catch all errors via `audit2allow` with `semodule -BD` at first. Do not forget to turn it off later via `semodule -B`. The working pocily is provided in file `ecryptfs-autounmount.te`, but it could be redundant, so better review it before use. Steps to insert it:
 
 ```
-$ checkmodule -M -m -o ecryptfs-autounmount.mod ecryptfs-autounmount.te
+$ checkmodule -M -m -o ecryptfs-autounmount.mo ecryptfs-autounmount.te
 $ semodule_package -o ecryptfs-autounmount.pp -m ecryptfs-autounmount.mo
 $ sudo semodule -i ecryptfs-autounmount.pp
 ```

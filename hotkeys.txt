@@ -1,1 +1,0 @@
-Super+P (Screen On/Off): /bin/sh -c "[[ $(light -G) = 0.00 ]] && light -I || (light -O; light -S 0)"

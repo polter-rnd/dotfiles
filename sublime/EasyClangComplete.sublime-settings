@@ -1,0 +1,4 @@
+{
+	"hide_default_completions": true,
+	"libclang_path": "/usr/lib64/libclang.so.11"
+}
