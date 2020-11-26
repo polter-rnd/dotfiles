@@ -16,6 +16,18 @@
 - Icons: **Paper**;
 - Fonts: **Rubik** for UI and **JetBrains Mono** for code (from `fonts/`).
 
+# Fractional scaling
+- `gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"`
+
+# Set primary monitor for GDM
+```
+# cp ~/.config/monitors.xml /var/lib/gdm/.config/
+# chown gdm:gdm /var/lib/gdm/.config/monitors.xml
+```
+Please note that in `monitors.xml` should be no fractional-scaled displays!
+Make configuration without fractional scaling, apply it to GDM and then
+enable fractional scaling if necessary.
+
 # Encrypt home directory with eCryptfs
 - Use it instead of LUKS because of simpler login (no troubles with additional
   password prompts after logout/login), and auto unmount on logout;
