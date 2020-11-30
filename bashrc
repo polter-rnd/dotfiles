@@ -26,5 +26,8 @@ if [ -f /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
     GIT_PS1_SHOWUPSTREAM="auto"
 
     export PROMPT_COMMAND="$(sed -r 's|^(.+)(\\\$\s*)$|__git_ps1 \"\1\" \"\2\"|' <<< $PS1)"
-    export PROMPT_COMMAND="__vte_prompt_command;$PROMPT_COMMAND"
+
+    if command -v __vte_prompt_command > /dev/null; then
+        export PROMPT_COMMAND="__vte_prompt_command;$PROMPT_COMMAND"
+    fi
 fi
