@@ -1,0 +1,12 @@
+#!/usr/bin/expect -f
+
+set timeout -1
+
+# When launching with primusrun,
+# often "X Error of failed request"
+# error will raise on exit and hang.
+# So wait for quit command and kill
+# application manually.
+
+spawn primusrun xonotic-glx
+expect "]quit"
