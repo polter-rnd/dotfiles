@@ -1,4 +1,19 @@
 {
+  "common_flags": [
+        "-I$project_path/src",
+        "-I$file_path",
+        // basic include directories
+        "-I/usr/include",
+        "-I/usr/local/include",
+        // GCC include directories
+        "-I/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10",
+ 	    "-I/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10/x86_64-redhat-linux",
+        "-I/usr/lib/gcc/x86_64-redhat-linux/10/../../../../include/c++/10/backward",
+        "-I/usr/lib/gcc/x86_64-redhat-linux/10/include",
+        // this is needed to include the correct headers for clang
+        "-I/usr/lib64/clang/$clang_version/include",
+    ],
+
 	"hide_default_completions": true,
 	"libclang_path": "/usr/lib64/libclang.so.11"
 }
