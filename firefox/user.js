@@ -4,7 +4,6 @@ user_pref("dom.push.connection.enabled", false);
 user_pref("dom.push.enabled", false);
 user_pref("dom.webnotifications.enabled", false);
 user_pref("dom.webnotifications.serviceworker.enabled", false);
-user_pref("gfx.webrender.all", true);
 user_pref("gfx.webrender.compositor", true);
 user_pref("gfx.webrender.compositor.force-enabled", true);
 user_pref("gfx.webrender.enabled", true);
