@@ -43,8 +43,8 @@ enable fractional scaling if necessary.
 - There should be enabled only `Loudness Compensator` with `-13db` output and `Robinson-Dadson` profile;
 - Remove `speech-dispatcher` because it adds sound freezes sometimes.
 
-# Add git support to comamnd prompt
-- Install `bashrc` -> `~/.bashrc` (assuming `git` is already installed).
+# Add colorised PS1 and git support to comamnd prompt
+- Install `profile.d/git.sh` -> `/etc/profile.d/git.sh` (assuming `git` is already installed).
 
 # Firewalld
 - To use NFS with libvirt/vagrant images, add `lockd` service to firewalld

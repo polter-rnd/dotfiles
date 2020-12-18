@@ -16,6 +16,17 @@ export PATH
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
+HOST_COLOR="\[\e[38;5;153m\]"
+if [[ $EUID -ne 0 ]]; then
+    USER_COLOR="\[\e[38;5;172m\]"
+else
+    USER_COLOR="\[\e[0;31m\]"
+fi
+
+PS1="[$USER_COLOR\u\[\e[m\]@$HOST_COLOR\h\[\e[m\] \W]\\$ "
+
+unset USER_COLOR HOST_COLOR
+
 if [ -f /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
     source /usr/share/git-core/contrib/completion/git-prompt.sh
     source /etc/profile.d/vte.sh
@@ -25,9 +36,11 @@ if [ -f /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
     GIT_PS1_SHOWUNTRACKEDFILES=true
     GIT_PS1_SHOWUPSTREAM="auto"
 
-    export PROMPT_COMMAND="$(sed -r 's|^(.+)(\\\$\s*)$|__git_ps1 \"\1\" \"\2\"|' <<< $PS1)"
+    PROMPT_COMMAND="$(sed -r 's|^(.+)(\\\$\s*)$|__git_ps1 \"\1\" \"\\\2\"|' <<< $PS1)"
 
     if command -v __vte_prompt_command > /dev/null; then
-        export PROMPT_COMMAND="__vte_prompt_command;$PROMPT_COMMAND"
+        PROMPT_COMMAND="__vte_prompt_command;$PROMPT_COMMAND"
     fi
 fi
+
+alias mvn="bash /opt/idea/plugins/maven/lib/maven3/bin/mvn"
