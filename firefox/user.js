@@ -12,5 +12,5 @@ user_pref("layers.force-active", true);
 user_pref("ui.key.menuAccessKeyFocuses", false);
 user_pref("widget.wayland-dmabuf-vaapi.enabled", true);
 user_pref("widget.wayland-dmabuf-webgl.enabled", true);
-user_pref("media.ffvpx.enabled", false);
+user_pref("media.ffmpeg.vaapi.enabled", true);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
