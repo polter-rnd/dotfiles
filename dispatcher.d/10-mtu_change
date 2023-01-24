@@ -1,0 +1,12 @@
+#!/bin/sh
+
+INTERFACE=$1
+STATUS=$2
+
+# Vostok-pharm
+VPN_ID="a6931b25-8c04-4151-80cc-6749bff97fa4"
+MTU=1380
+
+if [ "$STATUS" = "vpn-up" -a "$CONNECTION_UUID" = "$VPN_ID" ]; then
+    ip link set "$INTERFACE" mtu $MTU
+fi
