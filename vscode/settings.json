@@ -1,0 +1,83 @@
+{
+    /* Telemetry */
+    "telemetry.telemetryLevel": "off",
+    "redhat.telemetry.enabled": false,
+
+    /* Look and feel */
+    "window.zoomLevel": 1,
+    "window.titleBarStyle": "custom",
+    "window.commandCenter": true,
+    "window.autoDetectColorScheme": true,
+    "workbench.preferredDarkColorTheme": "Adwaita Dark",
+    "workbench.preferredLightColorTheme": "Adwaita Light",
+    "workbench.colorTheme": "Adwaita Dark & default syntax highlighting",
+    "workbench.productIconTheme": "adwaita",
+    "workbench.tree.indent": 12,
+    "workbench.editor.showTabs": false,
+
+    /* Explorer */
+    "explorer.confirmDelete": false,
+    "explorer.openEditors.visible": 40,
+    "explorer.openEditors.sortOrder": "alphabetical",
+    "explorer.excludeGitIgnore": true,
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+
+    /* Editor */
+    "editor.rulers": [
+        100
+    ],
+    "editor.renderWhitespace": "all",
+    "editor.suggestSelection": "first",
+    "editor.minimap.enabled": true,
+    "editor.inlayHints.enabled": "offUnlessPressed",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+
+    /* Java */
+    "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx8G -Xms100m",
+    "java.jdt.ls.java.home": "/usr/lib/sdk/openjdk17/jvm/openjdk-17",
+    "spring-boot.ls.java.home": "/usr/lib/sdk/openjdk17/jvm/openjdk-17",
+    "maven.executable.path": "/home/polter/.local/opt/maven/bin/mvn",
+    "java.project.importOnFirstTimeStartup": "automatic",
+    "java.import.generatesMetadataFilesAtProjectRoot": true,
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-11",
+            "path": "/usr/lib/sdk/openjdk11/jvm/openjdk-11",
+            "default":  true
+        },
+        {
+            "name": "JavaSE-17",
+            "path": "/usr/lib/sdk/openjdk17/jvm/openjdk-17"
+        }
+    ],
+
+    /* Git */
+    "git.mergeEditor": true,
+    "git.showActionButton": {
+        "commit": true,
+        "publish": true,
+        "sync": true
+    },
+    "git.terminalGitEditor": true,
+    "git.useEditorAsCommitInput": true,
+
+    /* Terminal */
+    "terminal.integrated.tabs.enabled": true,
+    "terminal.integrated.shellIntegration.enabled": true,
+    "terminal.integrated.sendKeybindingsToShell": true,
+    "terminal.integrated.defaultProfile.linux": "bash",
+
+    /* Container settings */
+    "docker.dockerPath": "/usr/bin/podman",
+    "docker.composeCommand": "/usr/bin/podman-compose",
+    "docker.environment": {
+        "DOCKER_HOST": "unix:///run/user/1000/podman/podman.sock"
+    },
+    "dev.containers.dockerComposePath": "/usr/bin/podman-compose",
+    "dev.containers.dockerPath": "/usr/bin/podman"
+}
