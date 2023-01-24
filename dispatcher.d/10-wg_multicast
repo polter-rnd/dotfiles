@@ -1,0 +1,11 @@
+#!/bin/sh
+
+INTERFACE=$1
+STATUS=$2
+
+# Wireguard
+VPN_ID="915207ab-1863-4173-9b67-61a6bb04fb1f"
+
+if [ "$STATUS" = "up" -a "$CONNECTION_UUID" = "$VPN_ID" ]; then
+    ip link set "$INTERFACE" multicast on
+fi
