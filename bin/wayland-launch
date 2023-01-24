@@ -1,0 +1,54 @@
+#!/bin/sh
+
+platform_args=""
+flatpak_args=""
+
+# Check platform argument
+case "$1" in
+    -electron)
+        platform=electron
+        ;;
+    -qt5)
+	platform=qt
+	;;
+    *)
+        echo "Usage: $0 -electron|-qt5 [command]"
+        exit 1
+esac
+
+# Extract app name and make $@ point to it's args
+app="$2"
+shift 2
+
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+    # Check if an application is started through flatpak
+    test "$(basename "$app")" = "flatpak" && using_flatpak=1
+
+    # On GNOME retrieve cursor size from settings and pass to an application
+    gnome_cursor_size="$(gsettings get org.gnome.desktop.interface cursor-size 2>/dev/null)"
+    if [ -n "$gnome_cursor_size" ]; then
+        if [ -n "$using_flatpak" ]; then
+            flatpak_args="--env=XCURSOR_SIZE=$gnome_cursor_size --env=DISPLAY="
+        else
+            export XCURSOR_SIZE="$gnome_cursor_size"
+	    export DISPLAY=
+        fi
+    fi
+
+    case "$platform" in
+        electron)
+            platform_args="--enable-features=UseOzonePlatform,WebRTCPipeWireCapturer,WaylandWindowDecorations"
+	    platform_args="$platform_args --ozone-platform=wayland"
+            ;;
+        qt)
+            platform_args="-platform wayland"
+            if [ -n "$using_flatpak" ]; then
+                flatpak_args="$flatpak_args --env=QT_QPA_PLATFORM=wayland"
+            else
+                export QT_QPA_PLATFORM=wayland
+            fi
+            ;;
+    esac
+fi
+
+exec "$app" $flatpak_args "$@" $platform_args

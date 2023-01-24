@@ -1,0 +1,25 @@
+#!/bin/sh
+
+dbus_call() {
+    gdbus call --session --dest org.gnome.Mutter.DisplayConfig \
+        --object-path /org/gnome/Mutter/DisplayConfig "$@"
+}
+
+powersave_get() {
+    dbus_call --method org.freedesktop.DBus.Properties.Get \
+        org.gnome.Mutter.DisplayConfig PowerSaveMode
+}
+
+powersave_set() {
+    dbus_call --method org.freedesktop.DBus.Properties.Set \
+        org.gnome.Mutter.DisplayConfig PowerSaveMode \
+        "<int32 $1>" >/dev/null
+}
+
+mode=$(powersave_get | tr -dc '0-9')
+echo $mode
+if test "$mode" -eq 0; then
+    powersave_set 1
+elif test "$mode" -eq 1; then
+    powersave_set 0
+fi
