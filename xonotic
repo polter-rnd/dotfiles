@@ -10,3 +10,6 @@ set timeout -1
 
 spawn primusrun xonotic-glx
 expect "]quit"
+
+close
+wait
