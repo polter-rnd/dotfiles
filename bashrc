@@ -72,6 +72,8 @@ __git_ps1_venv() {
 	__git_ps1 "${pre}" "${post}"
 }
 
+# Fallback if VTE prompt command is unavailable
+PROMPT_COMMAND=${PROMPT_COMMAND:='printf "\033]0;${USER}@${HOSTNAME}\007"'}
 
 source /run/host/usr/share/git-core/contrib/completion/git-prompt.sh 2>/dev/null
 if command -v __git_ps1 > /dev/null; then
