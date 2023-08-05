@@ -1,0 +1,12 @@
+#!/bin/sh
+
+DIRNAME=/tmp/fake-nvidia-libs
+
+mkdir -p "$DIRNAME"
+rm -f "$DIRNAME"/*
+for i in $(ldconfig -p | grep nvidia | cut -d '(' -f1); do
+    touch "$DIRNAME/$i"
+done
+
+export LD_LIBRARY_PATH="$DIRNAME"
+exec "$@"

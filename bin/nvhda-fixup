@@ -1,0 +1,22 @@
+#!/bin/bash
+
+NVHDA_FILE="/proc/acpi/nvhda"
+
+# Check all HDMI connections
+while IFS= read -r; do
+    DRIVER=$(realpath "$(dirname "$REPLY")"/../device/driver)
+    if [ "$(basename "$DRIVER")" = "nvidia" ]; then
+        HDMI_CONNECTED=1
+        break
+    fi
+done < <(grep -l ^connected /sys/class/drm/*HDMI*/status)
+
+NVHDA_STATUS="$(cat $NVHDA_FILE)"
+NVHDA_STATUS="${NVHDA_STATUS##* }"
+if [ -n "$HDMI_CONNECTED" ] && [ "$NVHDA_STATUS" == "OFF" ]; then
+    echo "ON" > "$NVHDA_FILE"
+    echo "HDA NVidia: turned on"
+elif [ -z "$HDMI_CONNECTED" ] && [ "$NVHDA_STATUS" == "ON" ]; then
+    echo "OFF" > "$NVHDA_FILE"
+    echo "HDA NVidia: turned off"
+fi

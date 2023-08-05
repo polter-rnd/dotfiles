@@ -1,0 +1,55 @@
+#!/bin/env python3
+
+import sys
+import os.path as path
+import xml.etree.ElementTree as ET
+
+def get_xrandr_outputs(monitors_xml):
+    tree = ET.parse(monitors_xml)
+    root = tree.getroot()
+
+    outputs = {}
+
+    for logicalmonitor in root.iter("logicalmonitor"):
+        params = []
+
+        name = None
+        for connector in logicalmonitor.iter("connector"):
+            name = connector.text
+            break
+        if name is None:
+            continue
+
+        x = logicalmonitor.find('x')
+        y = logicalmonitor.find('y')
+        scale = logicalmonitor.find('scale')
+        primary = logicalmonitor.find('primary')
+
+        if x is not None and y is not None:
+            x = int(x.text)
+            y = int(y.text)
+            if scale is not None and scale.text != '1':
+                x = round(x / float(scale.text))
+                y = round(y / float(scale.text))
+            params += ['--pos', str(x) + 'x' + str(y)]
+
+        if primary is not None and primary.text == 'yes':
+            params += ['--primary']
+
+        if len(params) > 0:
+            outputs[name] = params
+
+    return outputs
+
+def main():
+    monitors_xml = path.join(path.expanduser('~'), '.config/monitors.xml')
+    if len(sys.argv) > 1:
+        monitors_xml = sys.argv[1]
+
+    outputs = get_xrandr_outputs(monitors_xml)
+    for name, params in outputs.items():
+        print('--output', name, ' '.join(params), end=' ')
+    print()
+
+if __name__ == "__main__":
+    main()
