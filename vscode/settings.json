@@ -2,9 +2,6 @@
     /* Telemetry */
     "telemetry.telemetryLevel": "off",
     "redhat.telemetry.enabled": false,
-
-    /* Look and feel */
-    "window.zoomLevel": 1,
     "window.titleBarStyle": "custom",
     "window.commandCenter": true,
     "window.autoDetectColorScheme": true,
@@ -15,11 +12,15 @@
     "workbench.tree.indent": 12,
     "workbench.editor.showTabs": false,
 
+    /* Workaround for losing focus on Alt key */
+    "window.customMenuBarAltFocus": false,
+    "window.enableMenuBarMnemonics": false,
+
     /* Explorer */
     "explorer.confirmDelete": false,
     "explorer.openEditors.visible": 40,
     "explorer.openEditors.sortOrder": "alphabetical",
-    "explorer.excludeGitIgnore": true,
+    /*"explorer.excludeGitIgnore": true,*/
     "files.exclude": {
         "**/.classpath": true,
         "**/.project": true,
@@ -39,20 +40,20 @@
 
     /* Java */
     "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx8G -Xms100m",
-    "java.jdt.ls.java.home": "/usr/lib/sdk/openjdk17/jvm/openjdk-17",
-    "spring-boot.ls.java.home": "/usr/lib/sdk/openjdk17/jvm/openjdk-17",
+    "java.jdt.ls.java.home": "/usr/lib/jvm/java-17-openjdk",
+    "spring-boot.ls.java.home": "/usr/lib/jvm/java-11-openjdk/",
     "maven.executable.path": "/home/polter/.local/opt/maven/bin/mvn",
     "java.project.importOnFirstTimeStartup": "automatic",
     "java.import.generatesMetadataFilesAtProjectRoot": true,
     "java.configuration.runtimes": [
         {
             "name": "JavaSE-11",
-            "path": "/usr/lib/sdk/openjdk11/jvm/openjdk-11",
+            "path": "/usr/lib/jvm/java-11-openjdk",
             "default":  true
         },
         {
             "name": "JavaSE-17",
-            "path": "/usr/lib/sdk/openjdk17/jvm/openjdk-17"
+            "path": "/usr/lib/jvm/java-17-openjdk"
         }
     ],
 
@@ -71,13 +72,14 @@
     "terminal.integrated.shellIntegration.enabled": true,
     "terminal.integrated.sendKeybindingsToShell": true,
     "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.gpuAcceleration": "off",
 
     /* Container settings */
     "docker.dockerPath": "/usr/bin/podman",
     "docker.composeCommand": "/usr/bin/podman-compose",
-    "docker.environment": {
-        "DOCKER_HOST": "unix:///run/user/1000/podman/podman.sock"
-    },
+    "docker.host": "unix:///run/user/1000/podman/podman.sock",
     "dev.containers.dockerComposePath": "/usr/bin/podman-compose",
-    "dev.containers.dockerPath": "/usr/bin/podman"
+    "dev.containers.dockerPath": "/usr/bin/podman",
+    "window.zoomLevel": 1,
+    "sqltools.useNodeRuntime": true
 }
