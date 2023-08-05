@@ -17,7 +17,6 @@ powersave_set() {
 }
 
 mode=$(powersave_get | tr -dc '0-9')
-echo $mode
 if test "$mode" -eq 0; then
     powersave_set 1
 elif test "$mode" -eq 1; then
