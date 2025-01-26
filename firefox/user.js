@@ -12,7 +12,7 @@ user_pref("gfx.webrender.compositor.force-enabled", true);
 user_pref("layers.acceleration.force-enabled", true);
 /* VAAPI */
 user_pref("media.ffmpeg.vaapi.enabled", true);
-user_pref("media.ffvpx.enabled", false);
+user_pref("media.ffvpx.enabled", true);
 user_pref("media.navigator.mediadatadecoder_vpx_enabled", true);
 /* For userChrome.css */
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
@@ -22,6 +22,10 @@ user_pref("privacy.webrtc.hideGlobalIndicator", true);
 /* Automatically close cookie banners */
 user_pref("cookiebanners.service.mode", 2);
 user_pref("cookiebanners.service.mode.privateBrowsing", 2);
+/* For the sake of privacy */
+user_pref("dom.private-attribution.submission.enabled", false);
+/* Do not ask to save passwords */
+user_pref("signon.rememberSignons", false);
 
 /* Workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=1619585 */
 /*user_pref("security.sandbox.content.level", 0);
