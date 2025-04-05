@@ -14,8 +14,9 @@ user_pref("layers.acceleration.force-enabled", true);
 user_pref("media.ffmpeg.vaapi.enabled", true);
 user_pref("media.ffvpx.enabled", true);
 user_pref("media.navigator.mediadatadecoder_vpx_enabled", true);
-/* For userChrome.css */
+/* Hide tab bar and show window titlebar */
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+user_pref("browser.tabs.inTitlebar", 0);
 /* Hide annoying WebRTC indicator */
 user_pref("privacy.webrtc.legacyGlobalIndicator", false);
 user_pref("privacy.webrtc.hideGlobalIndicator", true);
@@ -26,6 +27,11 @@ user_pref("cookiebanners.service.mode.privateBrowsing", 2);
 user_pref("dom.private-attribution.submission.enabled", false);
 /* Do not ask to save passwords */
 user_pref("signon.rememberSignons", false);
+/* Disable translations, Russian is not supported */
+user_pref("browser.translations.enable", false);
+/* Turn off the disk cache */
+user_pref("browser.cache.disk.enable", false);
+user_pref("browser.cache.memory.enable", true);
 
 /* Workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=1619585 */
 /*user_pref("security.sandbox.content.level", 0);
