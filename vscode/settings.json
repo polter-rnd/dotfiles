@@ -5,10 +5,8 @@
     "window.titleBarStyle": "custom",
     "window.commandCenter": true,
     "window.autoDetectColorScheme": true,
-    "workbench.preferredDarkColorTheme": "Adwaita Dark",
+    "workbench.preferredDarkColorTheme": "Adwaita Dark & default syntax highlighting",
     "workbench.preferredLightColorTheme": "Adwaita Dark & default syntax highlighting",
-    "workbench.colorTheme": "Adwaita Dark & default syntax highlighting",
-    "workbench.productIconTheme": "adwaita",
     "workbench.tree.indent": 12,
     "workbench.editor.showTabs": "single",
     /* Workaround for losing focus on Alt key */
@@ -84,6 +82,9 @@
         "workbench.action.tasks.configureTaskRunner",
         "workbench.action.tasks.runTask"
     ],
+    /* C/C++ */
     "C_Cpp.formatting": "clangFormat",
-    "C_Cpp.default.cppStandard": "c++20"
+    "C_Cpp.default.cppStandard": "c++20",
+    /* Copilot */
+    "github.copilot.nextEditSuggestions.enabled": true,
 }
