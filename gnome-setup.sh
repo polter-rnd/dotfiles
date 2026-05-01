@@ -6,6 +6,9 @@ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffe
 gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,close"
 gsettings set org.gnome.desktop.wm.preferences titlebar-font "Noto Sans Bold 11"
 
+# Middle-click paste
+gsettings set org.gnome.desktop.interface gtk-enable-primary-paste true
+
 # Desktop fonts
 gsettings set org.gnome.desktop.interface font-name "Noto Sans Medium 11"
 gsettings set org.gnome.desktop.interface document-font-name "Noto Sans Medium 11"
